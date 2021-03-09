@@ -1,9 +1,15 @@
 <template>
 	<div class="home">
-		Home
-		<div v-for="country in allCountries" :key="country.code">
-			{{ country.name }}
-		</div>
+		Select Country:
+		<select>
+			<option
+				v-for="country in allCountries"
+				:key="country.code"
+				value="country.name"
+			>
+				{{ country.name }}
+			</option>
+		</select>
 	</div>
 </template>
 
@@ -23,4 +29,4 @@ export default {
 };
 </script>
 
-<style></style>
+<style src="./Home.css" />

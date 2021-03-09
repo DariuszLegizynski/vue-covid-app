@@ -1,6 +1,9 @@
 <template>
 	<section class="header">
-		Header
+		<h1>Covid-19 Tracker App</h1>
+		<div>
+			Hamburger
+		</div>
 	</section>
 </template>
 
@@ -10,4 +13,4 @@ export default {
 };
 </script>
 
-<style></style>
+<style src="./Header.css" />

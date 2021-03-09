@@ -1,6 +1,6 @@
 <template>
 	<section class="footer">
-		Footer
+		<h5>Made by Dariusz Legizynski</h5>
 	</section>
 </template>
 
@@ -10,4 +10,4 @@ export default {
 };
 </script>
 
-<style></style>
+<style src="./Footer.css" />
