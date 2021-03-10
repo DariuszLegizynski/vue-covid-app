@@ -1,13 +1,13 @@
 const state = {
-	everyCountry: [],
+	worldStats: {},
 };
 
 const getters = {
-	everyCountry: (state) => state.everyCountry,
+	worldStats: (state) => state.worldStats,
 };
 
 const actions = {
-	async fetchCountries({ commit }) {
+	async fetchStats({ commit }) {
 		const response = await fetch(
 			"https://covid19-graphql.herokuapp.com/",
 			{
@@ -15,29 +15,28 @@ const actions = {
 				headers: { "Content-Type": "application/json" },
 				body: JSON.stringify({
 					query: `
-                {
-                    countries (count: 253) {
-                      results {
-                        code
-                        name
-                      }
+                    {
+                        latest {
+                          confirmed
+                          recovered
+                          deceased
+                          lastUpdated
+                        }
                     }
-                  }
                 `,
 				}),
 			}
 		).catch((err) => alert(err.message));
-		const fetchCountries = await response
+		const fetchStats = await response
 			.json()
 			.catch((err) => alert(err.message));
-		commit("setCountries", fetchCountries);
+		commit("setAllStats", fetchStats);
 	},
 };
 
 const mutations = {
-	setCountries: (state, fetchCountries) =>
-		(state.everyCountry =
-			fetchCountries.data.countries.results),
+	setAllStats: (state, fetchStats) =>
+		(state.worldStats = fetchStats.data.latest),
 };
 
 export default {

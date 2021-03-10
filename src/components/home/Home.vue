@@ -3,13 +3,20 @@
 		Select Country:
 		<select>
 			<option
-				v-for="country in allCountries"
-				:key="country.code"
+				v-for="country in everyCountry"
+				:key="country.name"
 				value="country.name"
 			>
 				{{ country.name }}
 			</option>
 		</select>
+		allStats
+		<div>
+			<p>Confirmed: {{ worldStats.confirmed }}</p>
+			<p>Recovered: {{ worldStats.recovered }}</p>
+			<p>Deceased: {{ worldStats.deceased }}</p>
+			<p>Updated: {{ worldStats.lastUpdated }}</p>
+		</div>
 	</div>
 </template>
 
@@ -20,11 +27,12 @@ export default {
 	name: "Home",
 
 	methods: {
-		...mapActions(["fetchCountries"]),
+		...mapActions(["fetchCountries", "fetchStats"]),
 	},
-	computed: { ...mapGetters(["allCountries"]) },
+	computed: { ...mapGetters(["worldStats", "everyCountry"]) },
 	created() {
 		this.fetchCountries();
+		this.fetchStats();
 	},
 };
 </script>
