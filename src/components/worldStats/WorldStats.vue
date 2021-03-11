@@ -1,11 +1,24 @@
 <template>
 	<section class="worldStats">
 		World:
-		<div>
-			<p>Confirmed: {{ worldStats.confirmed }}</p>
-			<p>Recovered: {{ worldStats.recovered }}</p>
-			<p>Deceased: {{ worldStats.deceased }}</p>
-			<p>Updated: {{ worldStats.lastUpdated }}</p>
+		<div class="worldStats__wrapper">
+			<div class="worldStats__container">
+				<p>Confirmed:</p>
+				<p>{{ worldStats.confirmed }}</p>
+			</div>
+			<div class="worldStats__container">
+				<p>Recovered:</p>
+				<p>{{ worldStats.recovered }}</p>
+			</div>
+
+			<div class="worldStats__container">
+				<p>Deceased:</p>
+				<p>{{ worldStats.deceased }}</p>
+			</div>
+			<div class="worldStats__container">
+				<p>Updated:</p>
+				<p>{{ worldStats.lastUpdated }}</p>
+			</div>
 		</div>
 	</section>
 </template>

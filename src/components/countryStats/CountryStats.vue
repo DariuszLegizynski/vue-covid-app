@@ -1,11 +1,23 @@
 <template>
 	<section class="countryStats">
 		Country:
-		<div>
-			<p>Confirmed: {{ countryStats.confirmed }}</p>
-			<p>Recovered: {{ countryStats.recovered }}</p>
-			<p>Deceased: {{ countryStats.deceased }}</p>
-			<p>Updated: {{ countryStats.lastUpdated }}</p>
+		<div class="countryStats__wrapper">
+			<div class="countryStats__container">
+				<p>Confirmed:</p>
+				<p>{{ countryStats.confirmed }}</p>
+			</div>
+			<div class="countryStats__container">
+				<p>Recovered:</p>
+				<p>{{ countryStats.recovered }}</p>
+			</div>
+			<div class="countryStats__container">
+				<p>Deceased:</p>
+				<p>{{ countryStats.deceased }}</p>
+			</div>
+			<div class="countryStats__container">
+				<p>Updated:</p>
+				<p>{{ countryStats.lastUpdated }}</p>
+			</div>
 		</div>
 	</section>
 </template>
