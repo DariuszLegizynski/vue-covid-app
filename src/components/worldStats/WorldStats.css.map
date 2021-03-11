@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,WAAW,CAAC;EACX,OAAO,EAAE,IAAI;EACb,cAAc,EAAE,MAAM;EACtB,WAAW,EAAE,MAAM;CACnB",
+    "sources": [
+        "WorldStats.scss"
+    ],
+    "names": [],
+    "file": "WorldStats.css"
+}
