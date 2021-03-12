@@ -1,26 +1,23 @@
 const state = {
-	everyCountry: [],
+	countriesList: [],
 };
 
 const getters = {
-	everyCountry: (state) => state.everyCountry,
+	countriesList: (state) => state.countriesList,
 };
 
 const actions = {
 	async fetchCountries({ commit }) {
 		const response = await fetch(
-			"https://covid19-graphql.herokuapp.com/",
+			"https://covid19-graphql.netlify.app/",
 			{
 				method: "POST",
 				headers: { "Content-Type": "application/json" },
 				body: JSON.stringify({
 					query: `
                 {
-                    countries (count: 253) {
-                      results {
-                        code
-                        name
-                      }
+                    countries {
+                      country
                     }
                   }
                 `,
@@ -36,8 +33,7 @@ const actions = {
 
 const mutations = {
 	setCountries: (state, fetchCountries) =>
-		(state.everyCountry =
-			fetchCountries.data.countries.results),
+		(state.countriesList = fetchCountries.data.countries),
 };
 
 export default {

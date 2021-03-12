@@ -5,11 +5,11 @@
 			@change="selectCountryStats($event.target.value)"
 		>
 			<option
-				v-for="country in everyCountry"
-				:key="country.name"
-				:value="country.code"
+				v-for="country in countriesList"
+				:key="country.country"
+				:value="country.country"
 			>
-				{{ country.name }}
+				{{ country.country }}
 			</option>
 		</select>
 	</section>
@@ -25,7 +25,7 @@ export default {
 		...mapActions(["fetchCountries", "selectCountryStats"]),
 	},
 	computed: {
-		...mapGetters(["everyCountry"]),
+		...mapGetters(["countriesList"]),
 	},
 	created() {
 		this.fetchCountries();

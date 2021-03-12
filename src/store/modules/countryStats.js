@@ -7,26 +7,29 @@ const getters = {
 };
 
 const actions = {
-	async selectCountryStats({ commit }, countryCode) {
+	async selectCountryStats({ commit }, countryName) {
 		const response = await fetch(
-			"https://covid19-graphql.herokuapp.com/",
+			"https://covid19-graphql.netlify.app/",
 			{
 				method: "POST",
 				headers: { "Content-Type": "application/json" },
 				body: JSON.stringify({
 					query: `
                     {
-                        country(code: "${countryCode}") {
-                          code
-                          name
-                          latest {
-                            confirmed
-                            deceased
-                            recovered
-                            lastUpdated
-                          }
-                        }
-                      }
+						country(name: "${countryName}") {
+						  result {
+							updated
+							todayCases
+							cases
+							todayDeaths
+							deaths
+							todayRecovered
+							recovered
+							casesPerOneMillion
+							tests
+						  }
+						}
+					  }
                 `,
 				}),
 			}
@@ -40,7 +43,7 @@ const actions = {
 
 const mutations = {
 	selectCountry: (state, fetchCountry) =>
-		(state.countryStats = fetchCountry.data.country.latest),
+		(state.countryStats = fetchCountry.data.country.result),
 };
 
 export default {

@@ -9,18 +9,21 @@ const getters = {
 const actions = {
 	async fetchStats({ commit }) {
 		const response = await fetch(
-			"https://covid19-graphql.herokuapp.com/",
+			"https://covid19-graphql.netlify.app/",
 			{
 				method: "POST",
 				headers: { "Content-Type": "application/json" },
 				body: JSON.stringify({
 					query: `
                     {
-                        latest {
-                          confirmed
+                        globalTotal {
+                          cases
+						  todayCases
                           recovered
-                          deceased
-                          lastUpdated
+						  todayRecovered
+                          deaths
+						  todayDeaths
+                          updated
                         }
                     }
                 `,
@@ -36,7 +39,7 @@ const actions = {
 
 const mutations = {
 	setAllStats: (state, fetchStats) =>
-		(state.worldStats = fetchStats.data.latest),
+		(state.worldStats = fetchStats.data.globalTotal),
 };
 
 export default {

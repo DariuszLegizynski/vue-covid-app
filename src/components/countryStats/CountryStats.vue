@@ -4,19 +4,22 @@
 		<div class="countryStats__wrapper">
 			<div class="countryStats__container">
 				<p>Confirmed:</p>
-				<p>{{ countryStats.confirmed }}</p>
+				<p>today: {{ countryStats.todayCases }}</p>
+				<p>All: {{ countryStats.cases }}</p>
 			</div>
 			<div class="countryStats__container">
 				<p>Recovered:</p>
-				<p>{{ countryStats.recovered }}</p>
+				<p>today: {{ countryStats.todayRecovered }}</p>
+				<p>All: {{ countryStats.recovered }}</p>
 			</div>
 			<div class="countryStats__container">
 				<p>Deceased:</p>
-				<p>{{ countryStats.deceased }}</p>
+				<p>today: {{ countryStats.todayDeaths }}</p>
+				<p>All: {{ countryStats.deaths }}</p>
 			</div>
 			<div class="countryStats__container">
 				<p>Updated:</p>
-				<p>{{ countryStats.lastUpdated }}</p>
+				<p>{{ countryStats.updated }}</p>
 			</div>
 		</div>
 	</section>

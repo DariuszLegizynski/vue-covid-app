@@ -4,20 +4,23 @@
 		<div class="worldStats__wrapper">
 			<div class="worldStats__container">
 				<p>Confirmed:</p>
-				<p>{{ worldStats.confirmed }}</p>
+				<p>today: {{ worldStats.todayCases }}</p>
+				<p>All: {{ worldStats.cases }}</p>
 			</div>
 			<div class="worldStats__container">
 				<p>Recovered:</p>
-				<p>{{ worldStats.recovered }}</p>
+				<p>today: {{ worldStats.todayRecovered }}</p>
+				<p>All: {{ worldStats.recovered }}</p>
 			</div>
 
 			<div class="worldStats__container">
 				<p>Deceased:</p>
-				<p>{{ worldStats.deceased }}</p>
+				<p>today: {{ worldStats.todayDeaths }}</p>
+				<p>All: {{ worldStats.deaths }}</p>
 			</div>
 			<div class="worldStats__container">
 				<p>Updated:</p>
-				<p>{{ worldStats.lastUpdated }}</p>
+				<p>{{ worldStats.updated }}</p>
 			</div>
 		</div>
 	</section>
