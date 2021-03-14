@@ -1,4 +1,4 @@
-.worldStats {
+.cardInfoBox {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -9,16 +9,6 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  width: 100%;
+  background: grey;
 }
-
-.worldStats__wrapper {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: space-evenly;
-      -ms-flex-pack: space-evenly;
-          justify-content: space-evenly;
-  width: 100%;
-}
-/*# sourceMappingURL=WorldStats.css.map */
+/*# sourceMappingURL=CardInfoBox.css.map */

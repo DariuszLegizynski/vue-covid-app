@@ -3,22 +3,6 @@
 		<Header />
 		<Home />
 		<Footer />
-
-		<!-- Header -->
-		<!-- Title + Hamburger -->
-
-		<!-- Home -->
-		<!-- drop down select field -->
-
-		<!-- infoBox -->
-		<!-- infoBox -->
-		<!-- infoBox -->
-
-		<!-- Map -->
-
-		<!-- Cases by Country -->
-		<!-- Values -->
-		<!-- Graph -->
 	</div>
 </template>
 
