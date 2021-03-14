@@ -1,7 +1,9 @@
+@import "../../styles/variables";
+
 .cardInfoBox {
 	display: flex;
 
 	flex-direction: column;
 	align-items: center;
-	background: grey;
+	box-shadow: 0 0 8px $color-shadow;
 }

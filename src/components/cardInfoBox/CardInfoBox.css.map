@@ -1,8 +1,9 @@
 {
     "version": 3,
-    "mappings": "AAAA,AAAA,YAAY,CAAC;EACZ,OAAO,EAAE,IAAI;EAEb,cAAc,EAAE,MAAM;EACtB,WAAW,EAAE,MAAM;EACnB,UAAU,EAAE,IAAI;CAChB",
+    "mappings": "AAEA,AAAA,YAAY,CAAC;EACZ,OAAO,EAAE,IAAI;EAEb,cAAc,EAAE,MAAM;EACtB,WAAW,EAAE,MAAM;EACnB,UAAU,EAAE,CAAC,CAAC,CAAC,CAAC,GAAG,CCHL,oBAAoB;CDIlC",
     "sources": [
-        "CardInfoBox.scss"
+        "CardInfoBox.scss",
+        "../../styles/_variables.scss"
     ],
     "names": [],
     "file": "CardInfoBox.css"

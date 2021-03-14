@@ -9,6 +9,7 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  background: grey;
+  -webkit-box-shadow: 0 0 8px rgba(0, 0, 0, 0.125);
+          box-shadow: 0 0 8px rgba(0, 0, 0, 0.125);
 }
 /*# sourceMappingURL=CardInfoBox.css.map */
