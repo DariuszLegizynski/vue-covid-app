@@ -13,4 +13,4 @@ export default {
 };
 </script>
 
-<style src="./CardInfoBox" />
+<style src="./CardInfoBox.css" />

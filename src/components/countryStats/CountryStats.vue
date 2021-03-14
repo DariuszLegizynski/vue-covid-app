@@ -2,34 +2,36 @@
 	<section class="countryStats">
 		Country:
 		<div class="countryStats__wrapper">
-			<div class="countryStats__container">
-				<p>Confirmed:</p>
-				<p>today: {{ countryStats.todayCases }}</p>
-				<p>All: {{ countryStats.cases }}</p>
-			</div>
-			<div class="countryStats__container">
-				<p>Recovered:</p>
-				<p>today: {{ countryStats.todayRecovered }}</p>
-				<p>All: {{ countryStats.recovered }}</p>
-			</div>
-			<div class="countryStats__container">
-				<p>Deceased:</p>
-				<p>today: {{ countryStats.todayDeaths }}</p>
-				<p>All: {{ countryStats.deaths }}</p>
-			</div>
-			<div class="countryStats__container">
-				<p>Updated:</p>
-				<p>{{ countryStats.updated }}</p>
-			</div>
+			<CardInfoBox
+				title="Confirmed"
+				:value1="countryStats.todayCases"
+				:value2="countryStats.cases"
+			/>
+			<CardInfoBox
+				title="Recovered"
+				:value1="countryStats.todayRecovered"
+				:value2="countryStats.recovered"
+			/>
+			<CardInfoBox
+				title="Deceased"
+				:value1="countryStats.todayDeaths"
+				:value2="countryStats.deaths"
+			/>
+			<CardInfoBox
+				title="Updated"
+				:value1="countryStats.updated"
+			/>
 		</div>
 	</section>
 </template>
 
 <script>
 import { mapGetters, mapActions } from "vuex";
+import CardInfoBox from "../cardInfoBox/CardInfoBox";
 
 export default {
 	name: "CountryStats",
+	components: { CardInfoBox },
 
 	methods: {
 		...mapActions(["selectCountryStats"]),
