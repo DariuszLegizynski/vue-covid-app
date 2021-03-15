@@ -1,6 +1,6 @@
 <template>
 	<section class="allCountriesList">
-		Select Country:
+		<p>Select Country:</p>
 		<select
 			@change="selectCountryStats($event.target.value)"
 		>

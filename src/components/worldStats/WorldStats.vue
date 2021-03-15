@@ -1,6 +1,14 @@
 <template>
 	<section class="worldStats">
-		World:
+		<h3>World:</h3>
+		<p>
+			Updated:
+			{{
+				worldStats.updated
+					? worldStats.updated.split("T")[0]
+					: null
+			}}
+		</p>
 		<div class="worldStats__wrapper">
 			<CardInfoBox
 				title="Confirmed"
@@ -16,10 +24,6 @@
 				title="Deceased"
 				:value1="worldStats.todayDeaths"
 				:value2="worldStats.deaths"
-			/>
-			<CardInfoBox
-				title="Updated"
-				:value1="worldStats.updated"
 			/>
 		</div>
 	</section>

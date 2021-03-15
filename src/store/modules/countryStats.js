@@ -17,6 +17,7 @@ const actions = {
 					query: `
                     {
 						country(name: "${countryName}") {
+							country
 						  result {
 							updated
 							todayCases
@@ -43,7 +44,7 @@ const actions = {
 
 const mutations = {
 	selectCountry: (state, fetchCountry) =>
-		(state.countryStats = fetchCountry.data.country.result),
+		(state.countryStats = fetchCountry.data.country),
 };
 
 export default {

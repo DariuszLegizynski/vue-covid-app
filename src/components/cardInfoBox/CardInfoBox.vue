@@ -1,8 +1,8 @@
 <template>
 	<section class="cardInfoBox">
-		<h4>{{ title }}</h4>
-		<p>today: {{ value1 }}</p>
-		<p v-if="value2">All: {{ value2 }}</p>
+		<p>{{ title }}</p>
+		<h3>{{ value1 }}</h3>
+		<p v-if="value2">Total: {{ value2 }}</p>
 	</section>
 </template>
 

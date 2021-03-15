@@ -1,25 +1,29 @@
 <template>
 	<section class="countryStats">
-		Country:
+		<h3>Country: {{ countryStats.country }}</h3>
+		<p>
+			Updated:
+			{{
+				countryStats.result.updated
+					? countryStats.result.updated.split("T")[0]
+					: null
+			}}
+		</p>
 		<div class="countryStats__wrapper">
 			<CardInfoBox
 				title="Confirmed"
-				:value1="countryStats.todayCases"
-				:value2="countryStats.cases"
+				:value1="countryStats.result.todayCases"
+				:value2="countryStats.result.cases"
 			/>
 			<CardInfoBox
 				title="Recovered"
-				:value1="countryStats.todayRecovered"
-				:value2="countryStats.recovered"
+				:value1="countryStats.result.todayRecovered"
+				:value2="countryStats.result.recovered"
 			/>
 			<CardInfoBox
 				title="Deceased"
-				:value1="countryStats.todayDeaths"
-				:value2="countryStats.deaths"
-			/>
-			<CardInfoBox
-				title="Updated"
-				:value1="countryStats.updated"
+				:value1="countryStats.result.todayDeaths"
+				:value2="countryStats.result.deaths"
 			/>
 		</div>
 	</section>
