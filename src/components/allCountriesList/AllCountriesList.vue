@@ -2,7 +2,10 @@
 	<section class="allCountriesList">
 		<p>Select Country:</p>
 		<select
-			@change="selectCountryStats($event.target.value)"
+			@change="
+				selectCountryStats($event.target.value);
+				selectCountryGraph($event.target.value);
+			"
 		>
 			<option
 				v-for="country in countriesList"
@@ -22,7 +25,11 @@ export default {
 	name: "AllCountriesList",
 
 	methods: {
-		...mapActions(["fetchCountries", "selectCountryStats"]),
+		...mapActions([
+			"fetchCountries",
+			"selectCountryStats",
+			"selectCountryGraph",
+		]),
 	},
 	computed: {
 		...mapGetters(["countriesList"]),

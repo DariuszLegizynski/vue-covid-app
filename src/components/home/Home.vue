@@ -3,6 +3,7 @@
 		<WorldStats />
 		<AllCountriesList />
 		<CountryStats />
+		<CountryGraph />
 	</div>
 </template>
 
@@ -10,6 +11,7 @@
 import AllCountriesList from "../allCountriesList/AllCountriesList";
 import WorldStats from "../worldStats/WorldStats";
 import CountryStats from "../countryStats/CountryStats";
+import CountryGraph from "../countryGraph/CountryGraph";
 
 export default {
 	name: "Home",
@@ -18,6 +20,7 @@ export default {
 		AllCountriesList,
 		WorldStats,
 		CountryStats,
+		CountryGraph,
 	},
 };
 </script>
