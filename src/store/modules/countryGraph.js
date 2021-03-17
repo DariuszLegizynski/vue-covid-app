@@ -1,5 +1,7 @@
 const state = {
 	countryGraph: [],
+	confirmed: [],
+	date: [],
 };
 
 const getters = {
@@ -8,7 +10,6 @@ const getters = {
 
 const actions = {
 	async selectCountryGraph({ commit }, countryName) {
-		console.log(countryName);
 		const response = await fetch(
 			"https://covid19-graphql.now.sh/",
 			{
@@ -37,7 +38,15 @@ const actions = {
 
 const mutations = {
 	selectCountryGraph: (state, fetchCountryGraph) =>
-		(state.countryGraph = fetchCountryGraph.data.country),
+		(state.countryGraph =
+			fetchCountryGraph.data.country.results),
+	// selectConfirmed: (state, fetchCountryGraph) =>
+	// 	(state.confirmed =
+	// 		fetchCountryGraph.data.country.results),
+	// selectDate: (state, fetchCountryGraph) =>
+	// (state.date = fetchCountryGraph.data.country.results.map(
+	// 	(el) => el.date
+	// )),
 };
 
 export default {
