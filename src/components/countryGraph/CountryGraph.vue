@@ -1,6 +1,7 @@
 <template>
 	<section class="countryGraph">
-		<LineChart
+		<Graph
+			v-if="this.countryGraph.length"
 			:chartdata="chartData"
 			:options="chartOptions"
 		/>
@@ -9,13 +10,14 @@
 
 <script>
 import { mapGetters, mapActions } from "vuex";
-import LineChart from "../graph/Graph";
+import Graph from "../graph/Graph";
 
 export default {
 	name: "CountryGraph",
-	components: { LineChart },
+	components: { Graph },
 
 	data: () => ({
+		loaded: false,
 		chartOptions: {
 			responsive: true,
 			maintainAspectRatio: false,
@@ -27,6 +29,7 @@ export default {
 	},
 	computed: {
 		...mapGetters(["countryGraph"]),
+
 		chartData() {
 			return {
 				labels: this.countryGraph.map((el) => el.date),
@@ -45,4 +48,4 @@ export default {
 };
 </script>
 
-<style></style>
+<style />
