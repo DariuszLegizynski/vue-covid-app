@@ -2,7 +2,7 @@
 	<section class="countryGraph">
 		<Graph
 			v-if="this.countryGraph.length"
-			:chartdata="chartData"
+			:chartData="chartData"
 			:options="chartOptions"
 		/>
 	</section>
@@ -17,7 +17,6 @@ export default {
 	components: { Graph },
 
 	data: () => ({
-		loaded: false,
 		chartOptions: {
 			responsive: true,
 			maintainAspectRatio: false,
@@ -29,7 +28,6 @@ export default {
 	},
 	computed: {
 		...mapGetters(["countryGraph"]),
-
 		chartData() {
 			return {
 				labels: this.countryGraph.map((el) => el.date),
