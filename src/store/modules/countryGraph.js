@@ -21,6 +21,9 @@ const actions = {
 						country(name: "${countryName}") {
                             results {
                               confirmed
+							  deaths
+      						  recovered
+      						  growthRate
                               date
                             }
                           }
@@ -40,13 +43,6 @@ const mutations = {
 	selectCountryGraph: (state, fetchCountryGraph) =>
 		(state.countryGraph =
 			fetchCountryGraph.data.country.results),
-	// selectConfirmed: (state, fetchCountryGraph) =>
-	// 	(state.confirmed =
-	// 		fetchCountryGraph.data.country.results),
-	// selectDate: (state, fetchCountryGraph) =>
-	// (state.date = fetchCountryGraph.data.country.results.map(
-	// 	(el) => el.date
-	// )),
 };
 
 export default {

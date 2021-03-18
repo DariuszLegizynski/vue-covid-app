@@ -2,7 +2,22 @@
 	<section class="countryGraph">
 		<Graph
 			v-if="this.countryGraph.length"
-			:chartData="chartData"
+			:chartData="chartDataConfirmed"
+			:options="chartOptions"
+		/>
+		<Graph
+			v-if="this.countryGraph.length"
+			:chartData="chartDataRecovered"
+			:options="chartOptions"
+		/>
+		<Graph
+			v-if="this.countryGraph.length"
+			:chartData="chartDataDeaths"
+			:options="chartOptions"
+		/>
+		<Graph
+			v-if="this.countryGraph.length"
+			:chartData="chartDataGrow"
 			:options="chartOptions"
 		/>
 	</section>
@@ -28,7 +43,7 @@ export default {
 	},
 	computed: {
 		...mapGetters(["countryGraph"]),
-		chartData() {
+		chartDataConfirmed() {
 			return {
 				labels: this.countryGraph.map((el) => el.date),
 				datasets: [
@@ -37,6 +52,48 @@ export default {
 						backgroundColor: "#f87979",
 						data: this.countryGraph.map(
 							(el) => el.confirmed
+						),
+					},
+				],
+			};
+		},
+		chartDataRecovered() {
+			return {
+				labels: this.countryGraph.map((el) => el.date),
+				datasets: [
+					{
+						label: "Recovered",
+						backgroundColor: "#eea",
+						data: this.countryGraph.map(
+							(el) => el.recovered
+						),
+					},
+				],
+			};
+		},
+		chartDataDeaths() {
+			return {
+				labels: this.countryGraph.map((el) => el.date),
+				datasets: [
+					{
+						label: "Deaths",
+						backgroundColor: "#ccc204",
+						data: this.countryGraph.map(
+							(el) => el.deaths
+						),
+					},
+				],
+			};
+		},
+		chartDataGrow() {
+			return {
+				labels: this.countryGraph.map((el) => el.date),
+				datasets: [
+					{
+						label: "Growth Rate",
+						backgroundColor: "#fae",
+						data: this.countryGraph.map(
+							(el) => el.growthRate
 						),
 					},
 				],
