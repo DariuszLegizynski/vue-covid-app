@@ -1,4 +1,8 @@
 .worldStats {
+  width: 100%;
+}
+
+.worldStats__title {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -9,16 +13,17 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  width: 100%;
 }
 
 .worldStats__wrapper {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: space-evenly;
-      -ms-flex-pack: space-evenly;
-          justify-content: space-evenly;
-  width: 100%;
+  gap: 1rem;
+  padding: 2rem;
+  display: -ms-grid;
+  display: grid;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-grid-columns: (minmax(8rem, 12rem))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(8rem, 12rem));
 }
 /*# sourceMappingURL=WorldStats.css.map */

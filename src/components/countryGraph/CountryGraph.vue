@@ -103,4 +103,4 @@ export default {
 };
 </script>
 
-<style />
+<style src="./CountryGraph.css" />

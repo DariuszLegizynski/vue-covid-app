@@ -12,14 +12,21 @@ body {
 	background-color: $color-background;
 }
 
-  html  {
+html  {
 	box-sizing: border-box;
 	font-size: 62.5%;
 	scroll-behavior: smooth;
 }
-  img  {
+
+ul {
+	list-style: none;
+	padding-left: 0;
+}
+
+img  {
 	display: block;
 }
-  *::selection  {
+
+*::selection  {
 	background: $color-third;
 }

@@ -12,22 +12,27 @@ body {
   background-color: #f5f6fa;
 }
 
-  html  {
+html  {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   font-size: 62.5%;
   scroll-behavior: smooth;
 }
 
-  img  {
+ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+img  {
   display: block;
 }
 
-  *::-moz-selection  {
+*::-moz-selection  {
   background: #006778;
 }
 
-  *::selection  {
+*::selection  {
   background: #006778;
 }
 /*# sourceMappingURL=App.css.map */

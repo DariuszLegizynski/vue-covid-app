@@ -1,14 +1,16 @@
 <template>
 	<section class="worldStats">
-		<h3>World:</h3>
-		<p>
-			Updated:
-			{{
-				worldStats.updated
-					? worldStats.updated.split("T")[0]
-					: null
-			}}
-		</p>
+		<div class="worldStats__title">
+			<h3>World:</h3>
+			<p>
+				Updated:
+				{{
+					worldStats.updated
+						? worldStats.updated.split("T")[0]
+						: null
+				}}
+			</p>
+		</div>
 		<div class="worldStats__wrapper">
 			<CardInfoBox
 				title="Confirmed"
