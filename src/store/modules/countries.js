@@ -1,5 +1,5 @@
 const state = {
-	countriesList: [],
+	countriesList: [{ country: "--" }],
 };
 
 const getters = {
@@ -33,7 +33,10 @@ const actions = {
 
 const mutations = {
 	setCountries: (state, fetchCountries) =>
-		(state.countriesList = fetchCountries.data.countries),
+		(state.countriesList = [
+			...state.countriesList,
+			...fetchCountries.data.countries,
+		]),
 };
 
 export default {
