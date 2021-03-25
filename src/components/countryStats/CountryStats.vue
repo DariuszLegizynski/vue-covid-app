@@ -6,9 +6,7 @@
 				Updated:
 				{{
 					countryStats.result.updated
-						? countryStats.result.updated.split(
-								"T"
-						  )[0]
+						? countryStats.result.updated.split("T")[0]
 						: null
 				}}
 			</p>

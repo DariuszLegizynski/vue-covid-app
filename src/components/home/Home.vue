@@ -1,6 +1,7 @@
 <template>
 	<div class="home">
 		<WorldStats />
+		<LeafletMap />
 		<AllCountriesList />
 		<CountryStats />
 		<CountryGraph />
@@ -12,6 +13,7 @@ import AllCountriesList from "../allCountriesList/AllCountriesList";
 import WorldStats from "../worldStats/WorldStats";
 import CountryStats from "../countryStats/CountryStats";
 import CountryGraph from "../countryGraph/CountryGraph";
+import LeafletMap from "../map/LeafletMap";
 
 export default {
 	name: "Home",
@@ -21,6 +23,7 @@ export default {
 		WorldStats,
 		CountryStats,
 		CountryGraph,
+		LeafletMap,
 	},
 };
 </script>

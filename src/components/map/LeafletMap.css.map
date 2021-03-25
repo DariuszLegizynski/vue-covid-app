@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,aAAa,CAAC;EACb,MAAM,EAAE,KAAK;CACb",
+    "sources": [
+        "LeafletMap.scss"
+    ],
+    "names": [],
+    "file": "LeafletMap.css"
+}
