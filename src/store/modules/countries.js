@@ -1,47 +1,54 @@
 const state = {
-	countriesList: [{ country: "--" }],
+  countriesList: [
+    {
+      country: "--",
+      countryInfo: {
+        _id: 999999
+      }
+    }
+  ]
 };
 
 const getters = {
-	countriesList: (state) => state.countriesList,
+  countriesList: state => state.countriesList
 };
 
 const actions = {
-	async fetchCountries({ commit }) {
-		const response = await fetch(
-			"https://covid19-graphql.netlify.app/",
-			{
-				method: "POST",
-				headers: { "Content-Type": "application/json" },
-				body: JSON.stringify({
-					query: `
+  async fetchCountries({ commit }) {
+    const response = await fetch("https://covid19-graphql.netlify.app/", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        query: `
                 {
                     countries {
                       country
+                      countryInfo {
+                        _id
+                      }
                     }
                   }
-                `,
-				}),
-			}
-		).catch((err) => alert(err.message));
-		const fetchCountries = await response
-			.json()
-			.catch((err) => alert(err.message));
-		commit("setCountries", fetchCountries);
-	},
+                `
+      })
+    }).catch(err => alert(err.message));
+    const fetchCountries = await response
+      .json()
+      .catch(err => alert(err.message));
+    commit("setCountries", fetchCountries);
+  }
 };
 
 const mutations = {
-	setCountries: (state, fetchCountries) =>
-		(state.countriesList = [
-			...state.countriesList,
-			...fetchCountries.data.countries,
-		]),
+  setCountries: (state, fetchCountries) =>
+    (state.countriesList = [
+      ...state.countriesList,
+      ...fetchCountries.data.countries
+    ])
 };
 
 export default {
-	state,
-	getters,
-	actions,
-	mutations,
+  state,
+  getters,
+  actions,
+  mutations
 };

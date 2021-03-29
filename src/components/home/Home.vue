@@ -1,11 +1,30 @@
 <template>
-	<div class="home">
-		<WorldStats />
-		<LeafletMap />
-		<AllCountriesList />
-		<CountryStats />
-		<CountryGraph />
-	</div>
+  <div class="home">
+    <WorldStats />
+    <AllCountriesList />
+    <LeafletMap
+      :latitude="
+        this.countryStats.countryInfo && this.countryStats.countryInfo.lat
+          ? this.countryStats.countryInfo.lat
+          : 0
+      "
+      :longitude="
+        this.countryStats.countryInfo && this.countryStats.countryInfo.long
+          ? this.countryStats.countryInfo.long
+          : 0
+      "
+      :mapCenter="[
+        this.countryStats.countryInfo && this.countryStats.countryInfo.lat
+          ? this.countryStats.countryInfo.lat
+          : 0,
+        this.countryStats.countryInfo && this.countryStats.countryInfo.long
+          ? this.countryStats.countryInfo.long
+          : 0
+      ]"
+    />
+    <CountryStats />
+    <CountryGraph />
+  </div>
 </template>
 
 <script>
@@ -15,16 +34,25 @@ import CountryStats from "../countryStats/CountryStats";
 import CountryGraph from "../countryGraph/CountryGraph";
 import LeafletMap from "../map/LeafletMap";
 
-export default {
-	name: "Home",
+import { mapGetters, mapActions } from "vuex";
 
-	components: {
-		AllCountriesList,
-		WorldStats,
-		CountryStats,
-		CountryGraph,
-		LeafletMap,
-	},
+export default {
+  name: "Home",
+
+  components: {
+    AllCountriesList,
+    WorldStats,
+    CountryStats,
+    CountryGraph,
+    LeafletMap
+  },
+
+  methods: {
+    ...mapActions(["selectCountryStats"])
+  },
+  computed: {
+    ...mapGetters(["countryStats"])
+  }
 };
 </script>
 

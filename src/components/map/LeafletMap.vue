@@ -1,11 +1,13 @@
 <template>
   <div class="map">
     <h1>World Map</h1>
+    <p>latitude: {{ latitude }}</p>
+    <p>longitude: {{ longitude }}</p>
     <div id="mapContainer">
       <l-map
         style="height: 80%; width: 100%"
         :zoom="zoom"
-        :center="center"
+        :center="[latitude, longitude]"
         @update:zoom="zoomUpdated"
         @update:center="centerUpdated"
         @update:bounds="boundsUpdated"
@@ -26,11 +28,20 @@ export default {
     LMap,
     LTileLayer
   },
+  props: {
+    latitude: {
+      type: Number,
+      default: 0
+    },
+    longitude: {
+      type: Number,
+      default: 0
+    }
+  },
   data() {
     return {
       url: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
-      zoom: 1,
-      center: [0, 0],
+      zoom: 4,
       bounds: null
     };
   },
@@ -39,7 +50,7 @@ export default {
       this.zoom = zoom;
     },
     centerUpdated(center) {
-      this.center = center;
+      this.currentCenter = center;
     },
     boundsUpdated(bounds) {
       this.bounds = bounds;
