@@ -29,8 +29,7 @@ const actions = {
 							deaths
 							todayRecovered
 							recovered
-							casesPerOneMillion
-							tests
+							active
 						}
 					}
 				}

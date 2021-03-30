@@ -1,8 +1,7 @@
 <template>
   <div class="map">
     <h1>World Map</h1>
-    <p>latitude: {{ latitude }}</p>
-    <p>longitude: {{ longitude }}</p>
+    <p>Active: {{ activeCases }}</p>
     <div id="mapContainer">
       <l-map
         style="height: 80%; width: 100%"
@@ -12,6 +11,10 @@
         @update:center="centerUpdated"
         @update:bounds="boundsUpdated"
       >
+        <l-circle
+          :lat-lng="[latitude, longitude]"
+          :radius="Math.sqrt(activeCases / 10) * multiplier"
+        />
         <l-tile-layer :url="url"></l-tile-layer>
       </l-map>
     </div>
@@ -20,13 +23,14 @@
 
 <script>
 import "leaflet/dist/leaflet.css";
-import { LMap, LTileLayer } from "vue2-leaflet";
+import { LMap, LTileLayer, LCircle } from "vue2-leaflet";
 
 export default {
   name: "LeafletMap",
   components: {
     LMap,
-    LTileLayer
+    LTileLayer,
+    LCircle
   },
   props: {
     latitude: {
@@ -36,13 +40,18 @@ export default {
     longitude: {
       type: Number,
       default: 0
+    },
+    activeCases: {
+      type: Number,
+      default: 0
     }
   },
   data() {
     return {
       url: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
       zoom: 4,
-      bounds: null
+      bounds: null,
+      multiplier: 800
     };
   },
   methods: {

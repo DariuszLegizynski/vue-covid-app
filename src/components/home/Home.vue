@@ -13,14 +13,11 @@
           ? this.countryStats.countryInfo.long
           : 0
       "
-      :mapCenter="[
-        this.countryStats.countryInfo && this.countryStats.countryInfo.lat
-          ? this.countryStats.countryInfo.lat
-          : 0,
-        this.countryStats.countryInfo && this.countryStats.countryInfo.long
-          ? this.countryStats.countryInfo.long
+      :activeCases="
+        this.countryStats.result && this.countryStats.result.active
+          ? this.countryStats.result.active
           : 0
-      ]"
+      "
     />
     <CountryStats />
     <CountryGraph />
