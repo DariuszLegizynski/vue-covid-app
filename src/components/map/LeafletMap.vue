@@ -14,7 +14,14 @@
           <l-circle
             :lat-lng="[country.countryInfo.lat, country.countryInfo.long]"
             :radius="Math.sqrt(country.result.active / 10) * multiplier"
-          />
+          >
+            <l-popup>
+              <div>
+                <h5>{{ country.country }}</h5>
+                <p>Active: {{ country.result.active }}</p>
+              </div>
+            </l-popup>
+          </l-circle>
         </div>
 
         <l-tile-layer :url="url"></l-tile-layer>
@@ -25,7 +32,7 @@
 
 <script>
 import "leaflet/dist/leaflet.css";
-import { LMap, LTileLayer, LCircle } from "vue2-leaflet";
+import { LMap, LTileLayer, LCircle, LPopup } from "vue2-leaflet";
 import { mapGetters } from "vuex";
 
 export default {
@@ -33,7 +40,8 @@ export default {
   components: {
     LMap,
     LTileLayer,
-    LCircle
+    LCircle,
+    LPopup
   },
   props: {
     latitude: {
