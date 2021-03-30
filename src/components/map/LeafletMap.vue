@@ -1,7 +1,6 @@
 <template>
   <div class="map">
     <h1>World Map</h1>
-    <p>Active: {{ activeCases }}</p>
     <div id="mapContainer">
       <l-map
         style="height: 80%; width: 100%"
@@ -11,10 +10,13 @@
         @update:center="centerUpdated"
         @update:bounds="boundsUpdated"
       >
-        <l-circle
-          :lat-lng="[latitude, longitude]"
-          :radius="Math.sqrt(activeCases / 10) * multiplier"
-        />
+        <div v-for="country in countriesList" :key="country.countryInfo._id">
+          <l-circle
+            :lat-lng="[country.countryInfo.lat, country.countryInfo.long]"
+            :radius="Math.sqrt(country.result.active / 10) * multiplier"
+          />
+        </div>
+
         <l-tile-layer :url="url"></l-tile-layer>
       </l-map>
     </div>
@@ -24,6 +26,7 @@
 <script>
 import "leaflet/dist/leaflet.css";
 import { LMap, LTileLayer, LCircle } from "vue2-leaflet";
+import { mapGetters } from "vuex";
 
 export default {
   name: "LeafletMap",
@@ -40,11 +43,11 @@ export default {
     longitude: {
       type: Number,
       default: 0
-    },
-    activeCases: {
-      type: Number,
-      default: 0
     }
+    // activeCases: {
+    //   type: Number,
+    //   default: 0
+    // }
   },
   data() {
     return {
@@ -64,6 +67,9 @@ export default {
     boundsUpdated(bounds) {
       this.bounds = bounds;
     }
+  },
+  computed: {
+    ...mapGetters(["countriesList"])
   }
 };
 </script>

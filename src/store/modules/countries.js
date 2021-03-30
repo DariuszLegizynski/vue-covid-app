@@ -1,11 +1,12 @@
 const state = {
   countriesList: [
-    {
-      country: "--",
-      countryInfo: {
-        _id: 999999
-      }
-    }
+    // commented out till I find a way to show "--" without any errors in the country list
+    // {
+    //   country: "--",
+    //   countryInfo: {
+    //     _id: 999999
+    //   }
+    // }
   ]
 };
 
@@ -25,6 +26,11 @@ const actions = {
                       country
                       countryInfo {
                         _id
+                        lat
+                        long
+                      }
+                      result {
+                        active
                       }
                     }
                   }
